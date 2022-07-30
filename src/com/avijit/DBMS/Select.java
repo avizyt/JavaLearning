@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 public class Select {
@@ -17,6 +18,7 @@ public class Select {
         Connection conn = null;
         ArrayList<Integer> ID = new ArrayList<>();
         ArrayList<Double> TRIPDIST = new ArrayList<>();
+
         try {
             Class.forName("org.postgresql.Driver");
             conn = DriverManager
@@ -64,6 +66,17 @@ public class Select {
             }
         }
 
+        HashMap<Integer, Double> map = new HashMap<>();
+        // initialize map
+        map.put(1, 0.0);
+        map.put(2, 0.0);
+
+        for (int i = 0; i < ID.size(); i++) {
+            if (map.containsKey(ID.get(1))){
+                map.put(ID.get(i), map.get(ID.get(i))+ TRIPDIST.get(i));
+            }
+        }
+
         System.out.println("Vendor One Count :" + vendor1);
         System.out.println("Vendor Two Count :" + vendor2);
 
@@ -72,6 +85,9 @@ public class Select {
 
         System.out.println("Avg of vendor 1: " + vendor_one_dist / vendor1);
         System.out.println("Avg of vendor 2: " + vendor_two_dist / vendor2);
+
+        System.out.println(map.get(1));
+        System.out.println(map.get(2));
 
     }
 }
