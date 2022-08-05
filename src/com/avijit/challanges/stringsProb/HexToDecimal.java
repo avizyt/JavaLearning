@@ -1,4 +1,4 @@
-package com.avijit.challanges.strings;
+package com.avijit.challanges.stringsProb;
 
 public class HexToDecimal {
     public static void main(String[] args) {

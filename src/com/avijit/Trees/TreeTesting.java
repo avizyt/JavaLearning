@@ -2,7 +2,7 @@ package com.avijit.Trees;
 
 public class TreeTesting {
     public static void main(String[] args) {
-        int[] arr = {10, 40, 30, 20, 70, 60, 50};
+        int[] arr = {11, 44, 33, 22, 77, 66, 55};
 
         Tree root = new Tree(arr[0]);
 
@@ -29,5 +29,8 @@ public class TreeTesting {
         System.out.println(root.getRightChild().getNodeValue());
         System.out.println(root.getRightChild().getRightChild().getNodeValue());
         System.out.println(root.getRightChild().getRightChild().getRightChild().getNodeValue());
+
+        System.out.println("===================================");
+        System.out.println(root.getLeftChild().getRightChild().getNodeValue());
     }
 }

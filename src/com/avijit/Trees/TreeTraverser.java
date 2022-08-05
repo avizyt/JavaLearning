@@ -2,6 +2,12 @@ package com.avijit.Trees;
 
 public class TreeTraverser {
 
+    /**
+     * Pre Order Traversal: root -> left -> right
+     * In Order Traversal: left -> root -> right
+     * Post Order Traversal: left -> right -> root
+     * @param root
+     */
     public static void preOrder(Tree root){
         if (root != null){
             System.out.println(root.getNodeValue() + " ");
