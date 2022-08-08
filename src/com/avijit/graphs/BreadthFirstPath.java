@@ -2,29 +2,38 @@ package com.avijit.graphs;
 
 import java.util.LinkedList;
 
-public class DepthFirstPaths {
-
+public class BreadthFirstPath {
     private static boolean[] marked;
     private static int[] edgeTo;
     private static int source;
-    public DepthFirstPaths( Graph g, int s) {
+
+    public BreadthFirstPath(Graph g, int s) {
         marked = new boolean[g.V()];
         edgeTo = new int[g.V()];
         this.source = s;
-        dfs(g, s);
+        bfs(g, s);
     }
 
-    private void dfs(Graph g, int v){
-        marked[v] = true;
-        for (int w :
-                g.adj[v])   {
-            if (!marked[w]){
-                edgeTo[w] = v;
-                dfs(g, w);
+    private void bfs(Graph g, int s) {
+        LinkedList<Integer> queue = new LinkedList<>();
+        marked[s] = true;
+        queue.add(s);
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int w :
+                    g.adj[v]) {
+                if (!marked[w]) {
+                    edgeTo[w] = v;
+                    marked[w] = true;
+                    queue.add(w);
+                }
             }
         }
     }
 
+    public boolean marked(int v){
+        return marked[v];
+    }
     public static boolean hasPathTo(int v){
         return marked[v];
     }
@@ -64,7 +73,6 @@ public class DepthFirstPaths {
         return s;
     }
 
-    // main
     public static void main(String[] args) {
         Graph g = new Graph(12);
         g.addEdge(0, 1);
@@ -82,9 +90,9 @@ public class DepthFirstPaths {
 
         System.out.println(g);
         System.out.println("=====================");
-        DepthFirstPaths search = new DepthFirstPaths(g, 3);
-//        System.out.println(search);
-        printPath(2);
-//        printPath(4);
+        BreadthFirstPath bfp = new BreadthFirstPath(g, 1);
+//        System.out.println(bfp);
+        bfp.printPath(4);
+        bfp.printPath(5);
     }
 }
