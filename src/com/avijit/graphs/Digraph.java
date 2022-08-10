@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Digraph {
     private final int V;
     private int E;
-    private LinkedList<Integer> adj[];
+    public LinkedList<Integer> adj[];
 
     public Digraph(int V) {
         this.V = V;
