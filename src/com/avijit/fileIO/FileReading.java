@@ -17,11 +17,13 @@ public class FileReading {
 
         System.out.println("=============================");
 
-        File file = new File("src/com/resource/data/route.txt");
+        File file = new File("src/com/resource/data/tinyG.txt");
         Scanner in = new Scanner(file);
 
-        while (in.hasNextLine()){
-            System.out.println(in.nextLine());
-        }
+//        while (in.hasNextLine()){
+//            System.out.println(in.nextLine());
+//        }
+        System.out.println(in.nextInt());
+        System.out.println(in.nextInt());
     }
 }
